@@ -112,6 +112,7 @@ def index():
         <br>Measurement range: -40&deg;C &mdash; +300&deg;C
         </fieldset>
         <fieldset>
+            <legend>Transform</legend>
             <div>
                 <input type="radio" id="linear" name="transform_type" value="linear" {'' if bounds['log'] else 'checked'}>
                 <label for="linear">Linear</label>
