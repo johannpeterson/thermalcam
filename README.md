@@ -1,10 +1,30 @@
 # MLX90640 Thermal Camera
 
-I couldn't make work any of the projects I found online for the MLX90640, so I cobbled this together as a way to view images.  
-It uses Adafruit I2C libraries to communicate with the camera, and streams color images through a Flask web server.
-Note that there is a log transform available, but no accomodation is made for negative temperatures, so it will likely fail.
+## Introduction
 
-# Resources
+I couldn't make work any of the projects I found online for the MLX90640, so I cobbled this together as a way to view images.  It uses Adafruit I2C libraries to communicate with the camera, and streams color images through a Flask web server.  
+
+## Usage
+
+The main script is `web-cam.py`.
+
+Once the virual environment has been created and libraries installed on a Raspberry Pi:
+```bash
+source env/bin/activate
+sudo -E env PATH=$PATH python web-cam.py
+```
+For a guide to setting up the Raspberry Pi, see the [Adafruit documentation](https://learn.adafruit.com/raspberry-pi-thermal-camera/installing-circuitpython-on-raspberry-pi).
+
+## Notes
+
+1. The host IP address is hard-coded in the `app.run` call at the bottom of the script:
+```python
+if __name__ == '__main__':
+    app.run(debug=True, host='192.168.4.110')
+```
+2. Note that there is a log transform available, but no accomodation is made for negative temperatures, so it will probably fail.
+
+## Resources
 - [MLX90640 Data sheet](https://www.melexis.com/en/product/mlx90640/far-infrared-thermal-sensor-array)
 - [MakerPortal](https://makersportal.com/blog/2020/6/8/high-resolution-thermal-camera-with-raspberry-pi-and-mlx90640)
 - [Adafruit project](https://learn.adafruit.com/raspberry-pi-thermal-camera)
