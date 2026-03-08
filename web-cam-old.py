@@ -2,10 +2,6 @@
 # MLX90640 Test with Raspberry Pi
 ##################################
 #
-
-# source env/bin/activate
-# sudo -E env PATH=$PATH python web-cam.py
-
 import time,board,busio
 import numpy as np
 import matplotlib as mpl
